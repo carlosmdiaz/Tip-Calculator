@@ -8,28 +8,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <img id="mode" src="/images/icon-moon.svg" alt="">
+  <img src="/images/logo.svg" alt="">
   <div class="container">
     <div class="left-box">
       <div class="bill">
         <p>Bill</p>
         <div class="input_container">
           <img src="./images/icon-dollar.svg" alt="">
-          <input type="text" placeholder="0">
+          <input id="bill-input" type="text" placeholder="0">
         </div>
       </div>
 
       <div class="tip">
         <p>Select Tip %</p>
-        <div class="row">
+        <div class="buttons">
           <button>5%</button>
           <button>10%</button>
           <button>15%</button>
-        </div>
-
-        <div class="row">
           <button>20%</button>
           <button>25%</button>
-          <button>Costume</button>
+          <input id="costume" type="text" placeholder="Costume"></input>
         </div>
       </div>
 
@@ -37,7 +36,7 @@
         <p>Number of people</p>
         <div class="input_container">
           <img src="./images/icon-person.svg" alt="">
-          <input type="text" placeholder="0">
+          <input id="number-people" type="text" placeholder="0">
         </div>
       </div>
     </div>
@@ -52,7 +51,7 @@
             <p>/person</p>
           </div>
 
-          <h1>$0.00</h1>
+          <h1 id="tip-amount">$0.00</h1>
         </div>
         <div class="amount">
 
@@ -61,7 +60,7 @@
             <p>/person</p>
           </div>
           
-          <h1>$0.00</h1>
+          <h1 id="total-amount">$0.00</h1>
         </div>
       </div>
       <div class="reset">
@@ -69,5 +68,6 @@
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

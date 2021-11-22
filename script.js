@@ -2,7 +2,10 @@
 let darkMode = false;
 let themeBtn = document.getElementById("mode");
 let bodyBackground = document.body;
-let percentage = 0;
+let percent = 0;
+let bill = 0;
+let tipPercentage = 0;
+let amountofPeople = 0;
 
 function darkModeProperties () {
     themeBtn.src = './images/icon-sun.svg';
@@ -16,6 +19,7 @@ function lightModeProperties() {
     darkMode = false;
 }
 
+
 //Image clickable
 
 themeBtn.addEventListener("click", function(){
@@ -27,13 +31,17 @@ themeBtn.addEventListener("click", function(){
 })
 
 let billInput = document.getElementById('bill-input');
+
 billInput.addEventListener("change", function(){
-    console.log(billInput.value);
+    let bill = billInput.value;
+    calcTipSplit(bill, percent, amountofPeople);
 });
 
 let numberPeople = document.getElementById('number-people');
+
 numberPeople.addEventListener("change", function(){
-    console.log(numberPeople.value);
+    let amountofPeople = numberPeople.value;
+    calcTipSplit(bill, percent, amountofPeople);
 });
 
 let costumeTip = document.getElementById('costume');
@@ -42,6 +50,27 @@ let buttonsTip = document.querySelectorAll('button');
 
 buttonsTip.forEach((btn)=> {
     btn.addEventListener('click', function(){
-        console.log(parseFloat(btn.innerText)/100);
+        tipPercentage = parseFloat(btn.innerText);
+        calcTipSplit(bill, percent, amountofPeople);
     })
 })
+
+const calcTipSplit = (bill, percentage, amountofPeople) => {
+
+    bill = parseInt(billInput.value);
+    percentage = tipPercentage/100;
+    amountofPeople = parseFloat(numberPeople.value);
+    
+
+    //Handle the input logic before calculation
+
+    if (bill && percentage && amountofPeople){
+        let tipTotalAmountPerPerson = (bill * percentage) /amountofPeople;
+        let totalAmountPerPerson = bill/amountofPeople + tipTotalAmountPerPerson;
+
+        document.getElementById("tip-amount").innerText = `$${tipTotalAmountPerPerson.toFixed(2)}`;
+        document.getElementById("total-amount").innerText = `$${totalAmountPerPerson.toFixed(2)};`
+    }
+
+    
+}

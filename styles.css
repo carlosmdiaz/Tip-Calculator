@@ -76,13 +76,14 @@ body{
     color: hsl(0, 0%, 100%);
     cursor: pointer;
     font-family: 'Space Mono', monospace;
-    font-weight: bolder;
+    font-size: larger;
+    font-size: bolder;
 }
 .buttons button:hover{
     background-color: hsl(172, 67%, 45%);
     color: hsl(183, 100%, 15%);
 }
-
+/* 
 .buttons input{
     width: 100px;
     height: 35px;
@@ -92,15 +93,23 @@ body{
     outline:none;
     color: hsl(185, 41%, 84%);
     font-family: 'Space Mono', monospace;
-    font-weight: bolder;
+    font-size: larger;
+    font-size: bolder;
     text-align: center;
-}
-
-/* #costume{
-
-    text-align: end;
-    
 } */
+
+#costume{
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    font-size: larger;
+    font-size: bold;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family:  "Space Mono", monospace;
+    background-color: hsl(189, 41%, 97%);
+}
 
 .people{
     width: 100%;

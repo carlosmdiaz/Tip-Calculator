@@ -7,6 +7,14 @@ let bill = 0;
 let tipPercentage = 0;
 let amountofPeople = 0;
 
+function resetCalc(){
+    billInput.value = "";
+    numberPeople.value = "";
+    costumeTip.value = "";
+    document.getElementById("tip-amount").innerText = '$0.00';
+    document.getElementById("total-amount").innerText = '$0.00';
+}
+
 function darkModeProperties () {
     themeBtn.src = './images/icon-sun.svg';
     bodyBackground.style.backgroundColor = 'hsl(183, 100%, 15%)';
@@ -45,6 +53,11 @@ numberPeople.addEventListener("change", function(){
 });
 
 let costumeTip = document.getElementById('costume');
+
+costumeTip.addEventListener("change", function(){
+    tipPercentage = parseFloat(costumeTip.value);
+    calcTipSplit(bill, percent, amountofPeople);
+})
 
 let buttonsTip = document.querySelectorAll('button');
 
